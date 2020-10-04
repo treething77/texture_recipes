@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: e9b06ca0dedeb8f4d9c80bd554352306
+timeCreated: 1506174436
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Rise of Kingdom
+  fontNames:
+  - Rise of Kingdom
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

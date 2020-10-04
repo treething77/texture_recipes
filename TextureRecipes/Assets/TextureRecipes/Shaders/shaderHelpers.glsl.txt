@@ -1,0 +1,23 @@
+float3 remapColor(float3 inColor, sampler2D colorMapTex, float mapSize)
+{
+	float sliceUVSize = 1.0 / mapSize;//uv space for a z-slice, including padding
+	float pixelUVSize = sliceUVSize / (mapSize + 2.0);//uv space for an individual pixel
+	float sliceUVSizeNoPad = pixelUVSize * (mapSize);//uv space for a z-slice, without padding
+	float sliceUVPad = sliceUVSize - sliceUVSizeNoPad;//uv space for the padding
+
+	inColor.x *= sliceUVSizeNoPad;
+	inColor.x += pixelUVSize;
+
+	float f = mapSize * inColor.z;
+	float fr = frac(f);
+	inColor.x += floor(f) * sliceUVSize;
+
+	fixed4 col1 = tex2D(colorMapTex, inColor.xy);
+				
+	inColor.x += sliceUVSize;
+	fixed4 col2 = tex2D(colorMapTex, inColor.xy);
+
+	fixed4 c = lerp(col1, col2, fr);
+				
+	return c;
+}
